@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">formationStage</string>
+    <string name="app_name">FIY</string>
+    <string name="welcome">WELCOME TO</string>
+    <string name="log_in">Log into your account!</string>
+    <string name="email">Example@gmail.com</string>
+    <string name="pw">Password</string>
+    <string name="forget_pw">Forget Password ?</string>
+    <string name="RM">Remember me</string>
+    <string name="btn_sign_in">SIGN IN</string>
+    <string name="new_user">New user? | Sign up here!</string>
 </resources>
