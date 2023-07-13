@@ -10,81 +10,93 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="35dp">
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            android:textSize="20sp"
             android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:text="@string/welcome"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/appnamelogo"
-            android:layout_gravity="center" />
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/appnamelogo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/log_in"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:text="@string/log_in"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="10sp"
+            android:text="E-mail:"
+            android:textColor="@color/matchColor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:background="@drawable/shape"
+            android:orientation="vertical"
             android:padding="10dp">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:layout_marginLeft="5sp"
-                android:inputType="textEmailAddress"
-                android:textStyle="bold"
+                android:drawableEnd="@drawable/email"
                 android:drawableRight="@drawable/email"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:padding="10sp"/>
-            
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:padding="20sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
-        
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="7sp"
+            android:text="Password:"
+            android:textColor="@color/matchColor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:background="@drawable/shape"
+            android:orientation="vertical"
             android:padding="10dp">
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/pw"
-                android:layout_marginLeft="5sp"
-                android:padding="10sp"
-                android:inputType="textPassword"
-                android:textStyle="bold"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginStart="5sp"
                 android:drawableEnd="@drawable/key"
-                android:drawableRight="@drawable/key" />
+                android:drawableRight="@drawable/key"
+                android:hint="@string/pw"
+                android:inputType="textPassword"
+                android:padding="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -92,23 +104,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:padding="10sp"
             android:text="@string/RM"
             android:textSize="15sp"
-            android:textStyle="bold"
-            android:padding="10sp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/forgetPw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/forget_pw"
-            android:textStyle="bold"
-            android:textSize="15sp"
             android:layout_gravity="end"
-            android:padding="10sp"
+            android:layout_marginEnd="17sp"
             android:layout_marginRight="10sp"
-            android:layout_marginEnd="10sp"
-            android:textColor="@color/black"/>
+            android:text="@string/forget_pw"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnSignIn"
@@ -116,24 +127,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
+            android:backgroundTint="@color/matchColor"
             android:text="@string/btn_sign_in"
             android:textSize="15sp"
-            android:backgroundTint="@color/matchColor"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/signUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/new_user"
             android:layout_gravity="center"
             android:layout_marginTop="5sp"
-            android:padding="10sp"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="@color/black" />
+            android:text="@string/new_user"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
-
 
 
 </ScrollView>
