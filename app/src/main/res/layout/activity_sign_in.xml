@@ -10,14 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/welcome"
+            android:text="WELCOME TO"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/log_in"
+            android:text="Log into your account!"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -57,11 +57,12 @@
             android:padding="10dp">
 
             <EditText
+                android:id="@+id/SignInEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/email"
                 android:drawableRight="@drawable/email"
-                android:hint="@string/email"
+                android:drawableTint="@color/yellow"
+                android:hint="Example@gmail.com"
                 android:inputType="textEmailAddress"
                 android:padding="20sp"
                 android:textStyle="bold" />
@@ -88,12 +89,12 @@
             android:padding="10dp">
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/SignInPw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/key"
                 android:drawableRight="@drawable/key"
-                android:hint="@string/pw"
+                android:drawableTint="@color/yellow"
+                android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="20sp"
                 android:textStyle="bold" />
@@ -101,11 +102,12 @@
         </LinearLayout>
 
         <CheckBox
+            android:id="@+id/rememberMe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:padding="10sp"
-            android:text="@string/RM"
+            android:text="Remember Me!"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -114,9 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="17sp"
-            android:layout_marginRight="10sp"
-            android:text="@string/forget_pw"
+            android:layout_marginRight="17sp"
+            android:text="Forget Password?"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -126,9 +127,9 @@
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/matchColor"
-            android:text="@string/btn_sign_in"
+            android:text="SIGN IN"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -138,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15sp"
-            android:text="@string/new_user"
+            android:text="New user ? | Register here!"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />

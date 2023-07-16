@@ -49,10 +49,11 @@
             android:padding="20dp">
 
             <EditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/person"
                 android:drawableRight="@drawable/person"
+                android:drawableTint="@color/yellow"
                 android:hint="Username"
                 android:minHeight="48dp"
                 android:textSize="17sp"
@@ -73,8 +74,8 @@
                 android:id="@+id/signUpEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/email"
                 android:drawableRight="@drawable/email"
+                android:drawableTint="@color/yellow"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
@@ -96,8 +97,8 @@
                 android:id="@+id/signUpPw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/key"
                 android:drawableRight="@drawable/key"
+                android:drawableTint="@color/yellow"
                 android:hint="Password"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
@@ -116,10 +117,11 @@
             android:padding="20dp">
 
             <EditText
+                android:id="@+id/phoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/phone"
                 android:drawableRight="@drawable/phone"
+                android:drawableTint="@color/yellow"
                 android:hint="Phone Number"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"

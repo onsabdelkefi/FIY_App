@@ -57,10 +57,11 @@
             android:padding="25dp">
 
             <EditText
+                android:id="@+id/ForgetEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/email"
                 android:drawableRight="@drawable/email"
+                android:drawableTint="@color/yellow"
                 android:hint="Example@gmail.com"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
@@ -87,6 +88,7 @@
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/grey"
             android:drawableLeft="@drawable/left_arrow"
+            android:drawableTint="@color/white"
             android:text="BACK"
             android:textSize="15sp"
             android:textStyle="bold" />
