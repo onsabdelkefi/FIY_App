@@ -9,10 +9,18 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.formationstage.Models.UserProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -20,6 +28,10 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText username,signUpEmail,signUpPw,phoneNum;
     private String usernameSt,signUpEmailSt,signUpPwSt,phoneNumSt;
     private Button btnSignUp;
+
+    private static final String EMAIL_REGEX =
+            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -49,10 +61,9 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(SignUpActivity.this,"Registration Done! Please check your Email", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                            sendEmailVerification();
                         }else {
-                            Toast.makeText(SignUpActivity.this,"Register FAILED!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this,"Registration FAILED!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -60,6 +71,34 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void sendEmailVerification() {
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser != null){
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        sendUserData();
+                        Toast.makeText(SignUpActivity.this, "Registration Done! Please check your Email!", Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        finish();
+                        startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                    } else {
+                        Toast.makeText(SignUpActivity.this, "Registration FAILED!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void sendUserData() {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference("users");
+        UserProfile userProfile = new UserProfile(usernameSt,signUpEmailSt,phoneNumSt);
+        myRef.child(""+firebaseAuth.getUid()).setValue(userProfile);
+    }
+
     private boolean validate(){
         boolean result = false;
         usernameSt = username.getText().toString();
@@ -69,15 +108,20 @@ public class SignUpActivity extends AppCompatActivity {
 
         if (usernameSt.isEmpty() || usernameSt.length()<7) {
             username.setError("username is Invalid!");
-        }else if (signUpEmailSt.isEmpty() || !signUpEmailSt.contains("@") || !signUpEmailSt.contains(".")){
+        } else if (!isValidEmail(signUpEmailSt)) {
             signUpEmail.setError("Email is Invalid!");
-        }else if (signUpPwSt.isEmpty() || signUpPwSt.length()<8) {
+        } else if (signUpPwSt.isEmpty() || signUpPwSt.length()<8) {
             signUpPw.setError("Password is Invalid!");
-        }else if (phoneNumSt.isEmpty() || phoneNumSt.length()!=8) {
+        } else if (phoneNumSt.isEmpty() || phoneNumSt.length()!=8) {
             phoneNum.setError("Phone Number is Invalid!");
-        }else {
+        } else {
             result = true;
         }
         return result;
+    }
+    public static boolean isValidEmail(String signUpEmail) {
+        Pattern pattern = Pattern.compile(EMAIL_REGEX);
+        Matcher matcher = pattern.matcher(signUpEmail);
+        return matcher.matches();
     }
 }

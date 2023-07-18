@@ -55,6 +55,7 @@
                 android:drawableRight="@drawable/person"
                 android:drawableTint="@color/yellow"
                 android:hint="Username"
+                android:inputType="text"
                 android:minHeight="48dp"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -100,7 +101,7 @@
                 android:drawableRight="@drawable/key"
                 android:drawableTint="@color/yellow"
                 android:hint="Password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:minHeight="48dp"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -123,7 +124,7 @@
                 android:drawableRight="@drawable/phone"
                 android:drawableTint="@color/yellow"
                 android:hint="Phone Number"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:minHeight="48dp"
                 android:textSize="17sp"
                 android:textStyle="bold" />
